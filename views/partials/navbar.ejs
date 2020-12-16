@@ -1,0 +1,89 @@
+<div class="wrapper">
+    <div class="top_navbar">
+      <div class="hamburger">
+        <div class="hamburger__inner">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="logo">
+          Fydoon Admin Panel
+        </div>
+        <div class="right_menu">
+          <ul>
+            <li><i class="fas fa-user" style="color: aliceblue;"></i>
+              <div class="profile_dd">
+                <!-- <div class="dd_item">Profile</div>
+                <div class="dd_item">Change Password</div> -->
+                <div class="dd_item" ><a  href="/logout"><i class="fas fa-sign-out-alt"></i>&emsp;Logout</a></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+      
+    <div class="main_container">
+        <div class="sidebar">
+            <div class="sidebar__inner">
+              <div class="profile">
+                <div class="img">
+                  <a href="success"><img src="/public/profile.jpg" alt="profile_pic" ></a>
+                </div>
+                <div class="profile_info">
+                  <p>Welcome</p>
+                  <p class="profile_name"><%= user.username%></p>
+              
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <a href="Dashboard" class="">
+                    <span class="icon"><i class="fas fa-dice-d6"></i></span>
+                    <span class="title">Dashboard</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="viewdata">
+                    <span class="icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                    <span class="title">Client Info</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="clientdata">
+                    <span class="icon"><i class="fa fa-server" aria-hidden="true"></i></span>
+                    <span class="title">Clients Database</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="SalesInfo">
+                    <span class="icon"><i class="fas fa-chart-line"></i></span>
+                    <span class="title">Sales Info</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="BasicAnalytics">
+                    <span class="icon"><i class="fas fa-chart-pie"></i></span>
+                    <span class="title">Basic Analytics</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="Emailtrigger">
+                    <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+                    <span class="title">Email trigger</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="Forms">
+                    <span class="icon"><i class="fas fa-border-all"></i></span>
+                    <span class="title">Forms</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+  </div>
