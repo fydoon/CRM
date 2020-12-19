@@ -23,7 +23,6 @@
        
     
     </head>
-    
     <body>
         <section>
         <div class="wrapper">
@@ -108,7 +107,7 @@
           </div>
         </section>
         <section class="inner90">
-            <div style="margin-bottom: 8%;">
+            <div style="margin-bottom: 4%;">
                 <div class="createnew">
                     <a href="viewdata">
                         <Button class="btnc" type="submit"> Create New Contact</Button>
@@ -116,34 +115,34 @@
                     <input class="holder" type="text" placeholder=" &Tab;&Tab;&Tab;&Tab;&Tab;"/>
               </div>
             </div>
-             <div style="align-items:right; margin-left: 30px;">
-                 <table border="1" align="center">
-                     <tr>
-                        <th>Id</th>
+             <div>
+                 <table class="content-table">
+                   <thead>
+                      <tr>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Address</th>
-                        <th>phone</th>
-                        <th style="width: 100px;">Action</th>
-                        <th style="width: 100px;">Delete</th>
-                     </tr>
+                        <th>Phone</th>
+                        <th>Mobile</th>
+                        <th style="width: 60px;">Action</th>
+                        <th style="width: 60px;">Delete</th>
+                      </tr>
+                   </thead>
+                    
                      <% client.forEach(function(client){%>
                         <tr>
-                            <th><%= client._id %></th>
                             <th><%= client.user %></th>
                             <th><%= client.gmail %></th>
                             <th><%= client.Address %></th>
                             <th><%= client.phone %></th>
-                            <th><a href="update/<%= client._id %>"><i class="fas fa-edit"></i></a></th>
-                            <th><a href="delete/<%= client._id %>"><i class="fas fa-trash"></i></a></th>
+                            <th><%= client.mobile %></th>
+                            <th><a href="update/<%= client._id %>"><i class="fas fa-edit"id="icon" ></i></a></th>
+                            <th><a href="delete/<%= client._id %>"><i class="fas fa-trash" id="icon"></i></a></th>
                         </tr>
                         <%}) %>
-
                  </table>
              </div>
-
         </section >
-
      </div>
 </body>
 </html>

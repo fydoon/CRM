@@ -266,12 +266,14 @@ routes.get('/Forms',(req,res)=>{
 
 // inserting client data //
 routes.post('/savedata', CheckAuth,(req,res)=>{
-    var {user, gmail, Address, phone} = req.body;
+    var {user, gmail, Address, phone,mobile,Dob} = req.body;
          client({
              user,
              gmail,
              Address,
              phone,
+             mobile,
+             Dob,
          }).save().then((err,data)=>{
              if (err) {
                  console.log(err)
@@ -304,6 +306,8 @@ routes.post('/updateclient', CheckAuth,(req,res)=>{
         gmail:req.body.gmail,
         Address:req.body.Address,
         phone:req.body.phone,
+        mobile:req.body.mobile,
+        Dob:req.body.Dob,
     },(err,up)=>{
         if(err) throw err;
         res.redirect('/clientdata');

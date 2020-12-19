@@ -17,11 +17,18 @@ const clientschema = new mongoose.Schema({
     phone: {
         type: Number,
     },
+    mobile:{
+        type:Number,
+    },
+    Dob:{
+        type:Date,
+    },
     data:{
         type:Date,
         default:Date.now
 
     },
+    
 });
 
 module.exports = new mongoose.model('client', clientschema);
