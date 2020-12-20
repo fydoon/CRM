@@ -105,8 +105,8 @@
             </div>
           </div>
         </section>
-        <section class="outerring">
-          <div class="inner90 table">
+        <section class="inner90">
+            <div style="margin-bottom: 8%;">
                 <div class="createnew">
                     <a href="viewdata">
                         <Button class="btnc" type="submit"> Create New Contact</Button>
@@ -114,92 +114,42 @@
                     <input class="holder" type="text" placeholder=" &Tab;&Tab;&Tab;&Tab;&Tab;"/>
               </div>
             </div>
-        </section>
-          <section class="outerring">
-            <div class="inner90 table">
-              <form action="/updateclient" method="POST" enctype="multipart/form-data">
-                        <div class="inner20">
-                            <div class="onlyinput_horidiv input_margin">
-                              <input type="hidden" class="input" name="id" id="if" value="<%= client._id %>">
-                            </div>
+            <div class="inner30">
+                <div class="form-container">
+                    <form action="/updateclient" method="POST">
+                    <div class="table">
+                        <div class="feilds">
+                            <input type="hidden" class="input" name="id" id="if" value="<%= client._id %>">
                         </div>
-                        
-                        <div class="inner20">
-                            <div class="onlytext_hori_div textmargin">
-                                <h4>Name :</h4>
-                            </div>
-                            <div class="onlyinput_horidiv input_margin">
-                              <input type="text" class="input" name="user" id="name" value="<%= client.user %>">
-                            </div>
+                        <div class="feilds">
+                            <input type="text" class="input" name="user" id="name" value="<%= client.user %>">
                         </div>
-                        <div class="inner20">
-                            <div class="onlytext_hori_div textmargin">
-                                <h4>Email :</h4>
-                            </div>
-                            <div class="onlyinput_horidiv input_margin">
-                              <input type="email" class="input" name="gmail" id="gmail" value="<%= client.gmail %>">
-                            </div>
+                        <div class="feilds">                                 
+                            <input type="email" class="input" name="gmail" id="gmail" value="<%= client.gmail %>">
                         </div>
-                        <div class="inner20">
-                            <div class="onlytext_hori_div textmargin">
-                                <h4>Address :</h4>
-                            </div>
-                            <div class="onlyinput_horidiv input_margin">
-                              <input type="text" class="input" value="<%= client.Address %>" id="Address" name="Address">
-                            </div>
+                        <div class="feilds">                             
+                            <input type="text" class="input" value="<%= client.Address %>" id="Address" name="Address">
                         </div>
-                        <div class="inner20" style="padding-top: 50px;">
-                            <div class="onlytext_hori_div textmargin">
-                                <h4>Phone:</h4>
-                            </div>
-                            <div class="onlyinput_horidiv input_margin">
-                              <input type="text" class="input" value="<%= client.phone %>" id="phone" name="phone" >
-                            </div>
+                        <div class="feilds">
+                            <input type="text" class="input" value="<%= client.phone %>" id="phone" name="phone" >
                         </div>
-                        <div class="inner20" style="padding-top: 50px;">
-                            <div class="onlytext_hori_div textmargin">
-                                <h4>Mobile:</h4>
-                            </div>
-                            <div class="onlyinput_horidiv input_margin">
-                              <input type="text" class="input" value="<%= client.mobile %>" id="phone" name="mobile" >
-                            </div>
+                        <div class="feilds">
+                            <input type="text" class="input" value="<%= client.mobile %>" id="phone" name="mobile" >
                         </div>
-                        <div class="inner20" style="padding-top: 50px;">
-                            <div class="onlytext_hori_div textmargin">
-                                <h4>DOB:</h4>
-                            </div>
-                            <div class="onlyinput_horidiv input_margin">
-                              <input type="date" class="input" value="<%= client.Dob %>" id="phone" name="Dob" >
-                            </div>
+                        <div class="feilds">
+                            <input type="text" class="input" value="<%= client.Dob %>" id="phone" name="Dob" >
                         </div>
-                        <div class="inner20">
-                          <div class="rolling image_box">
-                              <img id="pic"  src="../public/dummy_img.png" >
-                          </div>
-                          <div>
-                              <input type="file" class="addphoto" name="photo" value= "<img src='/public/uploads/<%= client.photo %>'" accept="image/*" multiple onchange="loadFile(event)">
-                          </div>
-                        </div>
-                        <div class="inner20">
-                          <div class="rolling image_box">
-                            <% if (client.photo) {%>
-                              <img src="/public/uploads/<%= client.photo %>" width="50">
-                              <% }%>
-                          </div>  
-                        </div>
-                        <div class="inner20" style="padding-top: 30px;">
-                            <div class="button " style="padding: 8px 10px; text-align: justify;">
-                                <button type="submit"style=" padding:  8px 10px;;">Update</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="button" style="padding: 8px 10px; text-align: justify;">
+                        <button type="submit"style=" padding:  8px 10px;;">update</button>
+                    </div>
+                </form>
+                </div>
             </div>
-        </section>
-        <script type="text/javascript">
-          var loadFile = function(event) {
-      var output = document.getElementById('pic');
-      output.src = URL.createObjectURL(event.target.files[0]);
-    };
-      </script>
+
+
+        </section >
+
+     </div>
 </body>
 </html>
