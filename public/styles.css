@@ -256,16 +256,36 @@
   position: relative;
   top: 1px;
 }
+
+.createnew1 button {
+  border-radius: 5px;
+  background-color: #286b3a;
+  border: 1px solid #2d5832;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #172b4d;
+}
+.createnew1 button:hover {
+  background-color: #5cbf2a;
+}
+.createnew1 button:active {
+  position: relative;
+  top: 1px;
+}
 .tags {
   padding: 10px 10px;
   width: 60%;
 }
 .holder {
-  margin-left: 700px;
   border-radius: 10px;
-  margin-right: 14px;
   padding: 10px 10px;
   font-family: Arial, FontAwesome;
+  float: left;
 }
 .outerring {
   float: left;
@@ -285,6 +305,10 @@
 }
 .inner20 {
   width: 23%;
+  float: left;
+}
+.inner50 {
+  width: 50%;
   float: left;
 }
 
@@ -309,14 +333,7 @@
   font-size: 14px;
   font-family: arial;
   width: 200px;
-  box-shadow: 4px 3px 10px 1px #9e9e9e;
-}
-.block1 {
-  float: left;
-  margin-top: -100px;
-  width: 250px;
-  margin-right: 3px;
-  padding-left: 10px;
+  box-shadow: 4px 3px 7px 1px #9e9e9e;
 }
 .onlytext_hori_div {
   float: left;
@@ -326,6 +343,7 @@
   font-size: 14px;
   text-align: left;
   font-family: arial;
+
   margin-right: 10px;
   margin-top: 16px;
 }
@@ -354,6 +372,7 @@
   padding: 5px;
 }
 .content-table {
+  width: 70%;
   align-content: center;
   text-align: center;
   font-size: 0.9em;

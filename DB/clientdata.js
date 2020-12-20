@@ -26,9 +26,10 @@ const clientschema = new mongoose.Schema({
     data:{
         type:Date,
         default:Date.now
-
     },
+    photo:{
+        type:String,
+    }
     
 });
-
 module.exports = new mongoose.model('client', clientschema);
