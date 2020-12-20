@@ -116,7 +116,7 @@
               </div>
             </div>
              <div>
-                 <table  class="content-table">
+                 <table class="content-table">
                    <thead>
                       <tr>
                         <th>Name</th>
@@ -124,7 +124,6 @@
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Mobile</th>
-                        <th>Profile</th>
                         <th style="width: 60px;">Action</th>
                         <th style="width: 60px;">Delete</th>
                       </tr>
@@ -137,11 +136,6 @@
                             <th><%= client.Address %></th>
                             <th><%= client.phone %></th>
                             <th><%= client.mobile %></th>
-                            <th>
-                              <% if (client.photo) {%>
-                                <img src="/public/uploads/<%= client.photo %>" width="50">
-                                <% }%>
-                            </th>
                             <th><a href="update/<%= client._id %>"><i class="fas fa-edit"id="icon" ></i></a></th>
                             <th><a href="delete/<%= client._id %>"><i class="fas fa-trash" id="icon"></i></a></th>
                         </tr>
