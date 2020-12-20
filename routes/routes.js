@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const nodemailer = require('nodemailer');
 const sendgrid = require('nodemailer-sendgrid-transport')
 const crypto = require('crypto')
+const multer  = require('multer')
 const user = require("../DB/models.js");
 const client = require("../DB/clientdata.js");
 const { json, response } = require("express");
@@ -30,6 +31,19 @@ var msgmail = {
     subject: 'Hi registration sucessful',
     html: '<h2>registration sucessfull</h2>'
 };
+
+// file upload function//
+var Storage = multer.diskStorage({
+    destination: "./public/uploads/",
+    filename: (req, file, cb) =>{
+        cb(null,file.fieldname+"_"+Date.now()+path.extname(file.originalname))
+    }
+  })
+   
+var upload = multer({
+     storage: Storage
+     }).single('photo');
+
 
 //gorgot password sendgrid
 const transpoter = nodemailer.createTransport(sendgrid(options));
@@ -64,7 +78,7 @@ const CheckAuth = function(req,res,next){
 }
 //database
 mongoose.connect("mongodb://localhost:27017/crm_database",{
-    useNewUrlParser:true, useUnifiedTopology:true,
+    useNewUrlParser:true, useUnifiedTopology:true,useFindAndModify:false,
  }).then(()=>console.log("database connected"))
  .catch((err)=>console.log(err))
 //end of database
@@ -265,13 +279,18 @@ routes.get('/Forms',(req,res)=>{
 });
 
 // inserting client data //
-routes.post('/savedata', CheckAuth,(req,res)=>{
-    var {user, gmail, Address, phone} = req.body;
+routes.post('/savedata', CheckAuth,upload,(req,res)=>{
+    var {user, gmail, Address, phone,mobile,Dob} = req.body;
+    var photo = req.file.filename;
+    // console.log("filepath"+photo)
          client({
              user,
              gmail,
              Address,
              phone,
+             mobile,
+             Dob,
+             photo,
          }).save().then((err,data)=>{
              if (err) {
                  console.log(err)
@@ -298,17 +317,32 @@ routes.get('/update/:id',CheckAuth,(req,res)=>{
     })
 });
 
-routes.post('/updateclient', CheckAuth,(req,res)=>{
-    var update = client.findByIdAndUpdate( req.body.id,{
-        user:req.body.user,
-        gmail:req.body.gmail,
-        Address:req.body.Address,
-        phone:req.body.phone,
-    },(err,up)=>{
+routes.post('/updateclient',CheckAuth,upload,(req,res)=>{
+    if(req.file){
+        var clientData = {
+            user:req.body.user,
+            gmail:req.body.gmail,
+            Address:req.body.Address,
+            phone:req.body.phone,
+            mobile:req.body.mobile,
+            Dob:req.body.Dob,
+            photo:req.file.filename,
+        }
+    }else{
+        var clientData = {
+            user:req.body.user,
+            gmail:req.body.gmail,
+            Address:req.body.Address,
+            phone:req.body.phone,
+            mobile:req.body.mobile,
+            Dob:req.body.Dob,
+        }
+    }
+    var update = client.findByIdAndUpdate( req.body.id,clientData,(err,up)=>{
         if(err) throw err;
         res.redirect('/clientdata');
     });
-});
+    });
 
 // delete the client//
 routes.get('/delete/:id',CheckAuth,(req,res)=>{
